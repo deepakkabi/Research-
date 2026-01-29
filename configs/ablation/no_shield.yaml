@@ -1,0 +1,33 @@
+# Ablation Study: No Safety Shield
+# Tests system without hard safety constraints
+
+# Inherits from default.yaml but disables Safety Shield
+_base_: ../default.yaml
+
+experiment:
+  name: ablation_no_shield
+  description: >
+    This ablation disables the Safety Shield module to measure
+    its contribution to constraint satisfaction and safe behavior.
+
+modules:
+  use_trust_gate: true
+  use_beliefs: true
+  use_world_model: false
+
+safety:
+  enabled: false
+  # When disabled, proposed actions are executed without verification
+
+# Expected Results:
+# - Higher constraint violations (protected entity breaches)
+# - Potentially higher task rewards (no safety blocking)
+# - Demonstrates need for hard safety guarantees
+
+ablation_notes:
+  hypothesis: Safety Shield is essential for guaranteed constraint satisfaction
+  metrics_to_track:
+    - constraint_violation_rate
+    - protected_entity_breaches
+    - proportionality_violations
+    - resource_constraint_violations

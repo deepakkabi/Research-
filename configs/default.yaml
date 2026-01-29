@@ -1,0 +1,65 @@
+# Cognitive Swarm - Default Configuration
+# Version 2.0
+
+# Environment Settings
+environment:
+  num_agents: 100
+  num_adversaries: 30
+  grid_size: 100
+  protected_zones: 3
+  max_episode_steps: 500
+
+# Agent Architecture
+agent:
+  obs_dim: 10
+  message_dim: 8
+  state_dim: 6
+  action_dim: 7
+  hidden_dim: 128
+  num_roles: 3
+  num_strategy_types: 4
+
+# Module Toggles
+modules:
+  use_trust_gate: true
+  use_beliefs: true
+  use_world_model: false
+
+# Training Hyperparameters
+training:
+  learning_rate: 0.0003
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_epsilon: 0.2
+  value_coef: 0.5
+  entropy_coef: 0.01
+  max_grad_norm: 0.5
+  batch_size: 256
+  num_epochs: 4
+  num_episodes: 1000
+
+# Safety Module
+safety:
+  safe_distance: 5.0
+  proportionality_lambda: 1.0
+  min_resource_threshold: 1.0
+
+# Trust Gate
+trust_gate:
+  consistency_threshold: 0.5
+  num_heads: 4
+  hidden_dim: 64
+
+# Bayesian Beliefs (V2)
+beliefs:
+  num_types: 4
+  update_frequency: 1
+  use_neural: true
+  hidden_dim: 64
+
+# Logging
+logging:
+  log_dir: logs/
+  checkpoint_dir: checkpoints/
+  save_interval: 100
+  tensorboard: true

@@ -1,0 +1,28 @@
+# Ablation Study: No Trust Gate
+# Tests system robustness without Byzantine fault tolerance
+
+# Inherits from default.yaml but disables Trust Gate
+_base_: ../default.yaml
+
+experiment:
+  name: ablation_no_trust
+  description: >
+    This ablation disables the Trust Gate module to measure 
+    its contribution to system robustness under Byzantine attacks.
+
+modules:
+  use_trust_gate: false
+  use_beliefs: true
+  use_world_model: false
+
+# Expected Results:
+# - Decreased robustness to corrupted messages
+# - Higher susceptibility to Byzantine agents
+# - May show better performance in clean environments (less filtering overhead)
+
+ablation_notes:
+  hypothesis: Trust Gate is critical for robustness under adversarial conditions
+  metrics_to_track:
+    - task_success_rate
+    - coordination_failure_rate
+    - byzantine_attack_resistance

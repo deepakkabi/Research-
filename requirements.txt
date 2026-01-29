@@ -1,0 +1,35 @@
+numpy>=1.20.0
+torch>=2.0.0
+gymnasium>=0.28.0
+pettingzoo>=1.23.0
+# Cognitive Swarm Dependencies
+# Core ML framework
+torch>=1.12.0
+
+# Graph neural networks (required for Trust Gate)
+torch-geometric>=2.0.0
+
+# Numerical computing
+numpy>=1.21.0
+
+# Scientific computing (optional, for analysis)
+scipy>=1.7.0
+
+# Visualization (optional, for demos)
+matplotlib>=3.5.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Type hints
+typing-extensions>=4.0.0
+
+# Note: torch-geometric installation may require additional steps
+# See: https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
+#
+# Quick install (CPU):
+#   pip install torch-geometric
+#
+# For GPU support, match CUDA version with PyTorch:
+#   pip install torch-geometric -f https://data.pyg.org/whl/torch-${TORCH}+${CUDA}.html
